@@ -92,7 +92,7 @@ Example (from `evidence/forensics_sample.jsonl`):
 ### 4.3 Verification
 
 1. `TEST_FORENSICS.py` checks all 10 methods: a successful call logs `enter` then `exit`; a call on a missing file logs `enter` then `error` and still raises `FileNotFoundError`. Result: 3 tests and 20 subtests pass.
-2. `run_forensics_demo.py` runs the 10 methods over the 76 files in `TEST_ARTIFACTS/`: enter=760, exit=760, error=0 (`evidence/forensics_demo_summary.txt`).
+2. `run_forensics_demo.py` runs the 10 methods over the 76 files in `TEST_ARTIFACTS/`: enter=760, exit=760, error=0 (`evidence/forensics_demo_summary.txt`). The complete log of that run is `evidence/forensics_full_run.jsonl`.
 3. The tests caught a real mistake in the first version of the instrumentation (see lesson 4).
 
 ## 5. Continuous integration (`.github/workflows/python.build.yml`)
