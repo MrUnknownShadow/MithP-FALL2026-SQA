@@ -1,0 +1,138 @@
+{
+  "seed": 5710,
+  "iterations_per_method": 1000,
+  "summary": {
+    "parser.checkIfWeirdYAML": {
+      "calls": 1000,
+      "crashing_calls": 111,
+      "unique_bugs": 1
+    },
+    "parser.keyMiner": {
+      "calls": 1000,
+      "crashing_calls": 11,
+      "unique_bugs": 1
+    },
+    "parser.getKeyRecursively": {
+      "calls": 1000,
+      "crashing_calls": 8,
+      "unique_bugs": 1
+    },
+    "parser.getValsFromKey": {
+      "calls": 1000,
+      "crashing_calls": 8,
+      "unique_bugs": 1
+    },
+    "parser.getSingleDict4MultiDocs": {
+      "calls": 1000,
+      "crashing_calls": 125,
+      "unique_bugs": 2
+    },
+    "parser.checkIfValidHelm": {
+      "calls": 1000,
+      "crashing_calls": 92,
+      "unique_bugs": 1
+    },
+    "parser.find_json_path_keys": {
+      "calls": 1000,
+      "crashing_calls": 174,
+      "unique_bugs": 2
+    },
+    "scanner.checkIfValidSecret": {
+      "calls": 1000,
+      "crashing_calls": 0,
+      "unique_bugs": 0
+    },
+    "scanner.scanUserName": {
+      "calls": 1000,
+      "crashing_calls": 0,
+      "unique_bugs": 0
+    },
+    "parser.count_initial_comment_line": {
+      "calls": 1000,
+      "crashing_calls": 310,
+      "unique_bugs": 1
+    }
+  },
+  "findings": [
+    {
+      "method": "parser.checkIfWeirdYAML",
+      "exception": "TypeError",
+      "message": "argument of type 'bool' is not iterable",
+      "location": "parser.py:29 in <genexpr>",
+      "first_input": "(False,)",
+      "occurrences": 111
+    },
+    {
+      "method": "parser.keyMiner",
+      "exception": "RecursionError",
+      "message": "maximum recursion depth exceeded in comparison",
+      "location": "parser.py in keyMiner",
+      "first_input": "<repr failed: structure too deep>",
+      "occurrences": 11
+    },
+    {
+      "method": "parser.getKeyRecursively",
+      "exception": "RecursionError",
+      "message": "maximum recursion depth exceeded while calling a Python object",
+      "location": "parser.py in getKeyRecursively",
+      "first_input": "<repr failed: structure too deep>",
+      "occurrences": 8
+    },
+    {
+      "method": "parser.getValsFromKey",
+      "exception": "RecursionError",
+      "message": "maximum recursion depth exceeded while calling a Python object",
+      "location": "parser.py in getValsFromKey",
+      "first_input": "<repr failed: structure too deep>",
+      "occurrences": 8
+    },
+    {
+      "method": "parser.getSingleDict4MultiDocs",
+      "exception": "IndexError",
+      "message": "list index out of range",
+      "location": "parser.py:379 in getSingleDict4MultiDocs",
+      "first_input": "([b'\\xf9\\x86\\x02\\n', [<Opaque>], []],)",
+      "occurrences": 111
+    },
+    {
+      "method": "parser.getSingleDict4MultiDocs",
+      "exception": "TypeError",
+      "message": "unsupported operand type(s) for +: 'int' and 'str'",
+      "location": "parser.py:402 in getSingleDict4MultiDocs",
+      "first_input": "([{(1, 2): True, 0: [{}, 'pwdxmzIWmx!', -inf], '.travis.yml': <Opaque>, \"^';H{kw$3s0{FG\u00e9mR6A\\nh<IP{]\": '.travis.yml\\\\u<M9('}, {2.5: {'.github/E\\\\_%X{': [True, ''], 'W<myAo?Ep\"t\u4e2dnxg[e(]rWxiXO?\"2\ud83d\ude42^+\\tyR...<341 chars>",
+      "occurrences": 14
+    },
+    {
+      "method": "parser.checkIfValidHelm",
+      "exception": "TypeError",
+      "message": "a bytes-like object is required, not 'str'",
+      "location": "parser.py:131 in checkIfValidHelm",
+      "first_input": "(b'',)",
+      "occurrences": 92
+    },
+    {
+      "method": "parser.find_json_path_keys",
+      "exception": "TypeError",
+      "message": "cannot use a string pattern on a bytes-like object",
+      "location": "parser.py:255 in find_json_path_keys",
+      "first_input": "([{'admin_pass': None, b'k': {}, 'crt': [\"vrhM(H^j\\\\_|'T<\\r?**wwjU\u4e2diXB3\u4e2dE\u4e2d,L\", (1, 2)]}, 'was\"t<G\\\\$ >aN.\\\\Ozxlf@?', b'', ''],)",
+      "occurrences": 157
+    },
+    {
+      "method": "parser.find_json_path_keys",
+      "exception": "RecursionError",
+      "message": "maximum recursion depth exceeded in comparison",
+      "location": "parser.py in find_json_path_keys",
+      "first_input": "<repr failed: structure too deep>",
+      "occurrences": 17
+    },
+    {
+      "method": "parser.count_initial_comment_line",
+      "exception": "UnicodeDecodeError",
+      "message": "'utf-8' codec can't decode byte 0xe2 in position 0: invalid continuation byte",
+      "location": "parser.py:207 in count_initial_comment_line",
+      "first_input": "('<tmpdir>/fuzz_37306954.yaml',)",
+      "occurrences": 310
+    }
+  ]
+}

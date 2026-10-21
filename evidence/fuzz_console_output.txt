@@ -1,0 +1,22 @@
+parser.checkIfWeirdYAML                calls=1000  crashing=111   unique_bugs=1
+parser.keyMiner                        calls=1000  crashing=11    unique_bugs=1
+parser.getKeyRecursively               calls=1000  crashing=8     unique_bugs=1
+parser.getValsFromKey                  calls=1000  crashing=8     unique_bugs=1
+parser.getSingleDict4MultiDocs         calls=1000  crashing=125   unique_bugs=2
+parser.checkIfValidHelm                calls=1000  crashing=92    unique_bugs=1
+parser.find_json_path_keys             calls=1000  crashing=174   unique_bugs=2
+scanner.checkIfValidSecret             calls=1000  crashing=0     unique_bugs=0
+scanner.scanUserName                   calls=1000  crashing=0     unique_bugs=0
+parser.count_initial_comment_line      calls=1000  crashing=310   unique_bugs=1
+
+Total unique bugs: 10   (0.6s)   reports: ./fuzz_results
+  BUG-01 parser.checkIfWeirdYAML              TypeError          parser.py:29 in <genexpr>
+  BUG-02 parser.keyMiner                      RecursionError     parser.py in keyMiner
+  BUG-03 parser.getKeyRecursively             RecursionError     parser.py in getKeyRecursively
+  BUG-04 parser.getValsFromKey                RecursionError     parser.py in getValsFromKey
+  BUG-05 parser.getSingleDict4MultiDocs       IndexError         parser.py:379 in getSingleDict4MultiDocs
+  BUG-06 parser.getSingleDict4MultiDocs       TypeError          parser.py:402 in getSingleDict4MultiDocs
+  BUG-07 parser.checkIfValidHelm              TypeError          parser.py:131 in checkIfValidHelm
+  BUG-08 parser.find_json_path_keys           TypeError          parser.py:255 in find_json_path_keys
+  BUG-09 parser.find_json_path_keys           RecursionError     parser.py in find_json_path_keys
+  BUG-10 parser.count_initial_comment_line    UnicodeDecodeError parser.py:207 in count_initial_comment_line

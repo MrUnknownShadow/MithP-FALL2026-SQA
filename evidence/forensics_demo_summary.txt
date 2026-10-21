@@ -1,0 +1,4 @@
+files scanned : 76
+methods       : 10
+log events    : enter=760 exit=760 error=0
+log file      : ./forensics.log

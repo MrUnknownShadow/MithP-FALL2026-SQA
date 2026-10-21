@@ -1,0 +1,51 @@
+name: Build KubeTaint
+
+# COMP 5710/6710 SQA project: unit tests, fuzzing (fuzz.py) and forensics logging run on every push.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest pandas numpy PyYAML ruamel.yaml sarif-om jschema-to-python typer
+
+    - name: Install yq (used by parser.show_line_for_paths)
+      run: |
+        sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/download/v4.44.3/yq_linux_amd64
+        sudo chmod +x /usr/local/bin/yq
+        yq --version
+
+    - name: Run parsing and forensics unit tests
+      run: python -m pytest -q TEST_PARSING.py TEST_FORENSICS.py
+
+    - name: Fuzz 10 methods (fuzz.py)
+      run: |
+        python fuzz.py
+        cat fuzz_results/fuzz_report.md >> "$GITHUB_STEP_SUMMARY"
+
+    - name: Run forensics-instrumented scanner over the test artifacts
+      run: python run_forensics_demo.py
+
+    - name: Upload fuzzing and forensics evidence
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: sqa-evidence
+        path: |
+          fuzz_results/
+          forensics.log
+        if-no-files-found: warn
