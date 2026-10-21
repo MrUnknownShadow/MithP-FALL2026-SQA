@@ -142,10 +142,10 @@ python run_forensics_demo.py
 
 ## 9. Screenshots
 
-Add these files to `screenshots/` after the first GitHub Actions run:
+Files are in `screenshots/`.
 
-1. `actions_run_green.png`: workflow run page showing all steps.
-2. `actions_fuzz_summary.png`: job summary with the fuzz report.
-3. `actions_artifacts.png`: the `sqa-evidence` artifact.
+1. `actions_run_green.png`: workflow run "Build KubeTaint" #1 on `main`, status Success in 58 s, with the `sqa-evidence` artifact (25.8 KB) listed.
+2. `actions_fuzz_summary.png`: job summary with the fuzz report (signed-in view).
+3. `actions_steps.png`: expanded job steps, all green (signed-in view).
 4. `local_fuzz.png`: terminal output of `python fuzz.py`.
 5. `local_forensics.png`: terminal output of `python run_forensics_demo.py` and a few lines of `forensics.log`.
