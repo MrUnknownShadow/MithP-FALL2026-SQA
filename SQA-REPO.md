@@ -1,6 +1,6 @@
 # SQA Report: SLI-KUBE (COMP 5710/6710, Fall 2026)
 
-Team: TEAMNAME. Members: see `README.md`.
+Team: Mith P. Member: Mith Patel (solo).
 
 ## 1. Summary
 

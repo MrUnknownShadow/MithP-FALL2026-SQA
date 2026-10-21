@@ -1,14 +1,12 @@
-# TEAMNAME-FALL2026-SQA
+# MithP-FALL2026-SQA
 
 COMP 5710/6710 Software Quality Assurance, Fall 2026. Project: add fuzzing, forensics logging and continuous integration to SLI-KUBE (KubeSec), a Python static analysis tool for Kubernetes manifests.
 
 ## Team
 
-- Team name: TEAMNAME
+- Team name: Mith P
 - Members:
   1. Mith Patel, mithpatel01@gmail.com
-  2. TEAMMATE 2 NAME, email
-  3. TEAMMATE 3 NAME, email
 
 ## SQA deliverables
 
