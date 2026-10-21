@@ -142,10 +142,10 @@ python run_forensics_demo.py
 
 ## 9. Screenshots
 
-Files are in `screenshots/`.
+Files are in `screenshots/`, all from GitHub Actions run "Build KubeTaint" #1 on `main`.
 
-1. `actions_run_green.png`: workflow run "Build KubeTaint" #1 on `main`, status Success in 58 s, with the `sqa-evidence` artifact (25.8 KB) listed.
-2. `actions_fuzz_summary.png`: job summary with the fuzz report (signed-in view).
-3. `actions_steps.png`: expanded job steps, all green (signed-in view).
-4. `local_fuzz.png`: terminal output of `python fuzz.py`.
-5. `local_forensics.png`: terminal output of `python run_forensics_demo.py` and a few lines of `forensics.log`.
+1. `actions_run_green.png`: run status Success in 58 s, with the `sqa-evidence` artifact (25.8 KB) listed.
+2. `actions_steps.png`: all job steps passed (tests, fuzzing, forensics run, evidence upload).
+3. `actions_fuzz_summary.png`: job summary showing the fuzz report table and first findings.
+4. `ci_fuzz_log.png`: log of the `python fuzz.py` step, ending with 10 unique bugs.
+5. `ci_forensics_log.png`: log of the forensics step, ending with 76 files scanned and enter=760, exit=760, error=0.

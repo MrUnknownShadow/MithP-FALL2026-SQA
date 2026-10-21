@@ -192,7 +192,7 @@ def preview(obj):
 
 def innermost_frame(exc):
     frames = traceback.extract_tb(exc.__traceback__)
-    mine = [f for f in frames if os.path.abspath(f.filename).startswith(HERE) and not f.filename.endswith('fuzz.py')]
+    mine = [f for f in frames if not f.filename.startswith('<') and os.path.abspath(f.filename).startswith(HERE) and not f.filename.endswith('fuzz.py')]
     # a RecursionError is raised at whatever depth the limit is hit, so report the entry frame to keep findings stable
     f = (mine or frames)[0 if isinstance(exc, RecursionError) else -1]
     if isinstance(exc, RecursionError):
